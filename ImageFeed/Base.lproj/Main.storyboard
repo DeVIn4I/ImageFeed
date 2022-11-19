@@ -18,17 +18,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Gn0-Ve-zQ4">
-                                <rect key="frame" x="16" y="60" width="358" height="750"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <color key="backgroundColor" name="YP Black(iOS)"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reuseIdentifier" id="AXW-QO-re8">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AXW-QO-re8" id="bUj-QU-GKm">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black(iOS)"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Gn0-Ve-zQ4" secondAttribute="trailing" constant="16" id="AYE-xP-ywj"/>
-                            <constraint firstItem="Gn0-Ve-zQ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="gtP-7C-OKS"/>
-                            <constraint firstItem="Gn0-Ve-zQ4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="kST-jP-Y3V"/>
-                            <constraint firstAttribute="bottom" secondItem="Gn0-Ve-zQ4" secondAttribute="bottom" constant="34" id="pgg-BD-8gj"/>
+                            <constraint firstAttribute="trailing" secondItem="Gn0-Ve-zQ4" secondAttribute="trailing" id="AYE-xP-ywj"/>
+                            <constraint firstItem="Gn0-Ve-zQ4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gtP-7C-OKS"/>
+                            <constraint firstItem="Gn0-Ve-zQ4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kST-jP-Y3V"/>
+                            <constraint firstAttribute="bottom" secondItem="Gn0-Ve-zQ4" secondAttribute="bottom" id="pgg-BD-8gj"/>
                         </constraints>
                     </view>
                     <connections>

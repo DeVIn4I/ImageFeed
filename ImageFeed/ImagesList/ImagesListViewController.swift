@@ -11,15 +11,36 @@ class ImagesListViewController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
     
+    private var photosName = [String]()
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .none
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photosName = Array(0..<20).map{ "\($0)"}
         
         tableView.delegate = self
         tableView.dataSource = self
     }
 
-    func configCell(for cell: ImagesListCell) {
+    func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
+        
+        guard let image = UIImage(named: photosName[indexPath.row]) else { return }
+        
+        if indexPath.row % 2 == 0 {
+            cell.likeButton.setImage(UIImage(named: "Pressed"), for: .normal)
+        } else {
+            cell.likeButton.setImage(UIImage(named: "NotPressed"), for: .normal)
+        }
+        
+        cell.cellImage.image = image
+        cell.dateLabel.text = dateFormatter.string(from: Date())
         
     }
 }
@@ -32,7 +53,7 @@ extension ImagesListViewController: UITableViewDelegate {
 
 extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return photosName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +64,7 @@ extension ImagesListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        configCell(for: imageListCell)
+        configCell(for: imageListCell, with: indexPath)
         return imageListCell
     }
     

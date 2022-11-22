@@ -42,6 +42,13 @@ class ImagesListViewController: UIViewController {
         cell.cellImage.image = image
         cell.dateLabel.text = dateFormatter.string(from: Date())
         
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = cell.gradientView.bounds
+        gradientLayer.colors = [UIColor(red: 0.1, green: 0.11, blue: 0.13, alpha: 0).cgColor, UIColor(red: 0.1, green: 0.11, blue: 0.13, alpha: 0.2).cgColor]
+        cell.gradientView.layer.addSublayer(gradientLayer)
+//        gradientLayer.removeFromSuperlayer()
+        
     }
 }
 

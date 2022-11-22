@@ -53,6 +53,13 @@
                                                     <color key="textColor" name="YP White(iOS)"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgT-WF-8mU">
+                                                    <rect key="frame" x="20" y="159" width="374" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="jUZ-eg-lt1"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" name="YP Black(iOS)"/>
                                             <constraints>
@@ -60,7 +67,10 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="Hos-tW-c1L" secondAttribute="trailing" constant="10" id="Cqh-5R-rQS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="C0V-o1-tlq" secondAttribute="trailing" id="Jdq-iD-Ji1"/>
                                                 <constraint firstItem="C0V-o1-tlq" firstAttribute="top" secondItem="bUj-QU-GKm" secondAttribute="topMargin" id="Jsg-L4-tFx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="TgT-WF-8mU" secondAttribute="trailing" id="PBj-aO-kK0"/>
+                                                <constraint firstItem="TgT-WF-8mU" firstAttribute="leading" secondItem="bUj-QU-GKm" secondAttribute="leadingMargin" id="c1k-zd-0cR"/>
                                                 <constraint firstItem="C0V-o1-tlq" firstAttribute="leading" secondItem="bUj-QU-GKm" secondAttribute="leadingMargin" id="gZr-DT-E03"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TgT-WF-8mU" secondAttribute="bottom" id="hY4-NS-IDq"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="b9C-yJ-DUO" secondAttribute="trailing" constant="190" id="lS8-Rk-z3a"/>
                                                 <constraint firstItem="Hos-tW-c1L" firstAttribute="top" secondItem="bUj-QU-GKm" secondAttribute="topMargin" constant="12" id="mFT-qp-a02"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="C0V-o1-tlq" secondAttribute="bottom" id="neH-23-dZv"/>
@@ -70,6 +80,7 @@
                                         <connections>
                                             <outlet property="cellImage" destination="C0V-o1-tlq" id="eT2-vF-bQY"/>
                                             <outlet property="dateLabel" destination="b9C-yJ-DUO" id="Ihr-E8-292"/>
+                                            <outlet property="gradientView" destination="TgT-WF-8mU" id="vS3-3Q-uaq"/>
                                             <outlet property="likeButton" destination="Hos-tW-c1L" id="vg4-h9-tVb"/>
                                         </connections>
                                     </tableViewCell>

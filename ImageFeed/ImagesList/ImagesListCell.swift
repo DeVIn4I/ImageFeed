@@ -15,4 +15,11 @@ final class ImagesListCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var gradientView: UIView!
+
+    //Функция для обнуления gradientView
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.gradientView.layer.sublayers = nil
+    }
 }

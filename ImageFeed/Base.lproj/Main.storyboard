@@ -34,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="C0V-o1-tlq">
-                                                    <rect key="frame" x="20" y="11" width="374" height="178"/>
+                                                    <rect key="frame" x="16" y="0.0" width="382" height="192"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -43,7 +43,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hos-tW-c1L">
-                                                    <rect key="frame" x="354" y="23" width="30" height="26"/>
+                                                    <rect key="frame" x="358" y="12" width="30" height="26"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="Pressed"/>
                                                 </button>
@@ -54,7 +54,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgT-WF-8mU">
-                                                    <rect key="frame" x="20" y="159" width="374" height="30"/>
+                                                    <rect key="frame" x="16" y="162" width="382" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="jUZ-eg-lt1"/>
@@ -64,16 +64,16 @@
                                             <color key="backgroundColor" name="YP Black(iOS)"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="b9C-yJ-DUO" secondAttribute="bottom" constant="8" id="9vR-BO-CBi"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hos-tW-c1L" secondAttribute="trailing" constant="10" id="Cqh-5R-rQS"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="C0V-o1-tlq" secondAttribute="trailing" id="Jdq-iD-Ji1"/>
-                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="top" secondItem="bUj-QU-GKm" secondAttribute="topMargin" id="Jsg-L4-tFx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="TgT-WF-8mU" secondAttribute="trailing" id="PBj-aO-kK0"/>
-                                                <constraint firstItem="TgT-WF-8mU" firstAttribute="leading" secondItem="bUj-QU-GKm" secondAttribute="leadingMargin" id="c1k-zd-0cR"/>
-                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="leading" secondItem="bUj-QU-GKm" secondAttribute="leadingMargin" id="gZr-DT-E03"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="TgT-WF-8mU" secondAttribute="bottom" id="hY4-NS-IDq"/>
+                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="trailing" secondItem="Hos-tW-c1L" secondAttribute="trailing" constant="10" id="Cqh-5R-rQS"/>
+                                                <constraint firstAttribute="trailing" secondItem="C0V-o1-tlq" secondAttribute="trailing" constant="16" id="Jdq-iD-Ji1"/>
+                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="top" secondItem="bUj-QU-GKm" secondAttribute="top" id="Jsg-L4-tFx"/>
+                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="trailing" secondItem="TgT-WF-8mU" secondAttribute="trailing" id="PBj-aO-kK0"/>
+                                                <constraint firstItem="TgT-WF-8mU" firstAttribute="leading" secondItem="C0V-o1-tlq" secondAttribute="leading" id="c1k-zd-0cR"/>
+                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="leading" secondItem="bUj-QU-GKm" secondAttribute="leading" constant="16" id="gZr-DT-E03"/>
+                                                <constraint firstItem="C0V-o1-tlq" firstAttribute="bottom" secondItem="TgT-WF-8mU" secondAttribute="bottom" id="hY4-NS-IDq"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="b9C-yJ-DUO" secondAttribute="trailing" constant="190" id="lS8-Rk-z3a"/>
-                                                <constraint firstItem="Hos-tW-c1L" firstAttribute="top" secondItem="bUj-QU-GKm" secondAttribute="topMargin" constant="12" id="mFT-qp-a02"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="C0V-o1-tlq" secondAttribute="bottom" id="neH-23-dZv"/>
+                                                <constraint firstItem="Hos-tW-c1L" firstAttribute="top" secondItem="C0V-o1-tlq" secondAttribute="top" constant="12" id="mFT-qp-a02"/>
+                                                <constraint firstAttribute="bottom" secondItem="C0V-o1-tlq" secondAttribute="bottom" constant="8" id="neH-23-dZv"/>
                                                 <constraint firstItem="b9C-yJ-DUO" firstAttribute="leading" secondItem="bUj-QU-GKm" secondAttribute="leadingMargin" constant="8" id="yse-wv-cGU"/>
                                             </constraints>
                                         </tableViewCellContentView>

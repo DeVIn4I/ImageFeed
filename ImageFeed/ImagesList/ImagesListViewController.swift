@@ -8,28 +8,28 @@
 import UIKit
 
 class ImagesListViewController: UIViewController {
-
+    //MARK: IBOutlet
     @IBOutlet private var tableView: UITableView!
-    
+    //MARK: Private
     private var photosName = [String]()
-    
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         formatter.timeStyle = .none
         return formatter
     }()
-    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         photosName = Array(0..<20).map{ "\($0)"}
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-    func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
+    //MARK: Methods
+    private func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
+        
+        cell.prepareForReuse()
         
         guard let image = UIImage(named: photosName[indexPath.row]) else { return }
         
@@ -42,16 +42,13 @@ class ImagesListViewController: UIViewController {
         cell.cellImage.image = image
         cell.dateLabel.text = dateFormatter.string(from: Date())
         
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = cell.gradientView.bounds
         gradientLayer.colors = [UIColor(red: 0.1, green: 0.11, blue: 0.13, alpha: 0).cgColor, UIColor(red: 0.1, green: 0.11, blue: 0.13, alpha: 0.2).cgColor]
         cell.gradientView.layer.addSublayer(gradientLayer)
-//        gradientLayer.removeFromSuperlayer()
-        
     }
 }
-
+//MARK: Extensions
 extension ImagesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -72,8 +69,7 @@ extension ImagesListViewController: UITableViewDataSource {
         }
         
         configCell(for: imageListCell, with: indexPath)
+        
         return imageListCell
     }
-    
-    
 }

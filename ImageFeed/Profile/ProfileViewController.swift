@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     @IBOutlet private weak var profileNameLabel: UILabel!
     @IBOutlet private weak var userNameLabel: UILabel!
@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
     }
     
 
-    @IBAction private func logOutButton() {
+    @IBAction private func didTapLogOutButton() {
         
     }
 }

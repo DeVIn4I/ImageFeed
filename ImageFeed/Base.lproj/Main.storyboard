@@ -126,6 +126,9 @@
                                 <rect key="frame" x="368" y="100" width="20" height="22"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="ProfileExitImage"/>
+                                <connections>
+                                    <action selector="logOutButton" destination="iXJ-W3-4EN" eventType="touchUpInside" id="LeD-E7-PQd"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AJp-3V-CbE">
                                 <rect key="frame" x="16" y="154" width="382" height="75"/>
@@ -163,6 +166,11 @@
                             <constraint firstItem="SFK-OW-wyL" firstAttribute="leading" secondItem="eoS-uH-JHm" secondAttribute="leading" constant="16" id="vYJ-Ya-7VH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profileDescriptionLabel" destination="n89-1U-9o7" id="FAu-xp-hvJ"/>
+                        <outlet property="profileNameLabel" destination="gqu-hj-VaR" id="IXy-cb-i4N"/>
+                        <outlet property="userNameLabel" destination="ELJ-fZ-qqK" id="ZCX-jZ-fzQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="609-C4-4xI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

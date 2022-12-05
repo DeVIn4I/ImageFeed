@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B3050E1A293DD71100BE984E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3050E19293DD71100BE984E /* ProfileViewController.swift */; };
+		B3050E1C293E068400BE984E /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3050E1B293E068400BE984E /* YS Display-Bold.ttf */; };
 		B38DBBF1292759C0002FEEE2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DBBF0292759C0002FEEE2 /* UIColor+Extensions.swift */; };
 		B3A065A5292B87FD00ED8411 /* YS Display-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3A065A4292B87FD00ED8411 /* YS Display-Regular.ttf */; };
 		B3B747652926433300205CB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B747642926433300205CB4 /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		B3050E19293DD71100BE984E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B3050E1B293E068400BE984E /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		B38DBBF0292759C0002FEEE2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B3A065A4292B87FD00ED8411 /* YS Display-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Regular.ttf"; sourceTree = "<group>"; };
 		B3B747612926433300205CB4 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 		B3A0659F292B84E200ED8411 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B3050E1B293E068400BE984E /* YS Display-Bold.ttf */,
 				B3A065A4292B87FD00ED8411 /* YS Display-Regular.ttf */,
 			);
 			path = Fonts;
@@ -181,6 +184,7 @@
 				B3B7476E2926433500205CB4 /* Assets.xcassets in Resources */,
 				B3A065A5292B87FD00ED8411 /* YS Display-Regular.ttf in Resources */,
 				B3B7476C2926433300205CB4 /* Main.storyboard in Resources */,
+				B3050E1C293E068400BE984E /* YS Display-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -127,7 +127,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="ProfileExitImage"/>
                                 <connections>
-                                    <action selector="logOutButton" destination="iXJ-W3-4EN" eventType="touchUpInside" id="LeD-E7-PQd"/>
+                                    <action selector="didTapLogOutButton" destination="iXJ-W3-4EN" eventType="touchUpInside" id="g8s-Tm-c1Q"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AJp-3V-CbE">

@@ -124,7 +124,7 @@
                     <navigationItem key="navigationItem" id="uty-er-da9"/>
                     <connections>
                         <outlet property="tableView" destination="Gn0-Ve-zQ4" id="RYT-md-SQf"/>
-                        <segue destination="wnI-CG-TLP" kind="show" identifier="ShowSingleImage" id="WR0-4N-fku"/>
+                        <segue destination="wnI-CG-TLP" kind="presentation" identifier="ShowSingleImage" id="WR0-4N-fku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,23 +134,33 @@
         <!--Single View Controller-->
         <scene sceneID="zBD-9H-QG5">
             <objects>
-                <viewController id="wnI-CG-TLP" customClass="SingleViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="wnI-CG-TLP" customClass="SingleViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXm-gH-ieN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-i4-DtO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="YP Black(iOS)"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-ly-LNK">
+                                <rect key="frame" x="40" y="104" width="9" height="22"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="BuckButton"/>
+                                <connections>
+                                    <action selector="didTapBackButton" destination="wnI-CG-TLP" eventType="touchUpInside" id="ErU-lC-CvT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GIN-2V-Egf"/>
                         <color key="backgroundColor" name="YP Black(iOS)"/>
                         <constraints>
-                            <constraint firstItem="GIN-2V-Egf" firstAttribute="trailing" secondItem="pvl-i4-DtO" secondAttribute="trailing" id="BEa-nR-4xm"/>
-                            <constraint firstItem="pvl-i4-DtO" firstAttribute="top" secondItem="GIN-2V-Egf" secondAttribute="top" id="BNd-uN-KRy"/>
-                            <constraint firstItem="pvl-i4-DtO" firstAttribute="leading" secondItem="GIN-2V-Egf" secondAttribute="leading" id="RDR-UH-hep"/>
-                            <constraint firstItem="GIN-2V-Egf" firstAttribute="bottom" secondItem="pvl-i4-DtO" secondAttribute="bottom" id="Tc3-Ug-wxF"/>
+                            <constraint firstAttribute="trailing" secondItem="pvl-i4-DtO" secondAttribute="trailing" id="BEa-nR-4xm"/>
+                            <constraint firstItem="pvl-i4-DtO" firstAttribute="top" secondItem="yXm-gH-ieN" secondAttribute="top" id="BNd-uN-KRy"/>
+                            <constraint firstItem="pvl-i4-DtO" firstAttribute="leading" secondItem="yXm-gH-ieN" secondAttribute="leading" id="RDR-UH-hep"/>
+                            <constraint firstAttribute="bottom" secondItem="pvl-i4-DtO" secondAttribute="bottom" id="Tc3-Ug-wxF"/>
+                            <constraint firstItem="SrF-ly-LNK" firstAttribute="leading" secondItem="GIN-2V-Egf" secondAttribute="leading" constant="40" id="dI1-uC-OV5"/>
+                            <constraint firstItem="SrF-ly-LNK" firstAttribute="top" secondItem="GIN-2V-Egf" secondAttribute="top" constant="60" id="pJM-Ya-tVf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X78-oX-x22"/>
@@ -260,6 +270,7 @@
     <resources>
         <image name="0" width="200" height="132"/>
         <image name="10" width="200" height="133"/>
+        <image name="BuckButton" width="9" height="16"/>
         <image name="Pressed" width="29.333333969116211" height="26"/>
         <image name="ProfileExitImage" width="20" height="22"/>
         <image name="ProfilePhoto" width="70" height="70"/>

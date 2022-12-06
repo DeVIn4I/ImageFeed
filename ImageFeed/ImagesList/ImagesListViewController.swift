@@ -33,9 +33,9 @@ class ImagesListViewController: UIViewController {
         if segue.identifier == showSingleImageSegueIdentifier {
             let viewController = segue.destination as! SingleViewController
             let indexPath = sender as! IndexPath
-            let image = UIImage(named: photosName[indexPath.row])
-            _ = viewController.view
-            viewController.fullImageView.image = image
+            let image = UIImage(named: "\(photosName[indexPath.row])_full_size") ?? UIImage(named: photosName[indexPath.row])
+
+            viewController.image = image
         } else {
             super.prepare(for: segue, sender: sender)
         }

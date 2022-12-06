@@ -73,7 +73,7 @@
                                                     <state key="normal" image="Pressed"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 ноября 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-yJ-DUO">
-                                                    <rect key="frame" x="28.000000000000007" y="165.33333333333334" width="94.666666666666686" height="15.666666666666657"/>
+                                                    <rect key="frame" x="27.999999999999993" y="165.33333333333334" width="91.333333333333314" height="15.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="YandexSansDisplay-Regular" family="Yandex Sans Display" pointSize="13"/>
                                                     <color key="textColor" name="YP White(iOS)"/>
                                                     <nil key="highlightedColor"/>
@@ -139,10 +139,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-i4-DtO">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fs6-pG-g3z">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="YP Black(iOS)"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-i4-DtO">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="133"/>
+                                        <color key="backgroundColor" name="YP Black(iOS)"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="pvl-i4-DtO" firstAttribute="top" secondItem="fs6-pG-g3z" secondAttribute="top" id="2DA-OW-zuI"/>
+                                    <constraint firstAttribute="bottom" secondItem="pvl-i4-DtO" secondAttribute="bottom" constant="457" id="3Vx-xe-iZ9"/>
+                                    <constraint firstItem="pvl-i4-DtO" firstAttribute="leading" secondItem="fs6-pG-g3z" secondAttribute="leading" id="HIk-oQ-odf"/>
+                                    <constraint firstAttribute="trailing" secondItem="pvl-i4-DtO" secondAttribute="trailing" id="L6D-FE-yUA"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="m5Z-om-een"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="rHy-LH-oJH"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wnI-CG-TLP" id="ic1-vd-VFQ"/>
+                                </connections>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-ly-LNK">
                                 <rect key="frame" x="40" y="104" width="9" height="22"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -155,22 +171,23 @@
                         <viewLayoutGuide key="safeArea" id="GIN-2V-Egf"/>
                         <color key="backgroundColor" name="YP Black(iOS)"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="pvl-i4-DtO" secondAttribute="trailing" id="BEa-nR-4xm"/>
-                            <constraint firstItem="pvl-i4-DtO" firstAttribute="top" secondItem="yXm-gH-ieN" secondAttribute="top" id="BNd-uN-KRy"/>
-                            <constraint firstItem="pvl-i4-DtO" firstAttribute="leading" secondItem="yXm-gH-ieN" secondAttribute="leading" id="RDR-UH-hep"/>
-                            <constraint firstAttribute="bottom" secondItem="pvl-i4-DtO" secondAttribute="bottom" id="Tc3-Ug-wxF"/>
+                            <constraint firstItem="GIN-2V-Egf" firstAttribute="trailing" secondItem="fs6-pG-g3z" secondAttribute="trailing" id="R8a-ZK-fRi"/>
                             <constraint firstItem="SrF-ly-LNK" firstAttribute="leading" secondItem="GIN-2V-Egf" secondAttribute="leading" constant="40" id="dI1-uC-OV5"/>
-                            <constraint firstItem="SrF-ly-LNK" firstAttribute="top" secondItem="GIN-2V-Egf" secondAttribute="top" constant="60" id="pJM-Ya-tVf"/>
+                            <constraint firstItem="fs6-pG-g3z" firstAttribute="top" secondItem="yXm-gH-ieN" secondAttribute="top" id="fmr-kK-cDh"/>
+                            <constraint firstAttribute="bottom" secondItem="fs6-pG-g3z" secondAttribute="bottom" id="kT9-kS-ej5"/>
+                            <constraint firstItem="SrF-ly-LNK" firstAttribute="top" secondItem="yXm-gH-ieN" secondAttribute="top" constant="104" id="pJM-Ya-tVf"/>
+                            <constraint firstItem="fs6-pG-g3z" firstAttribute="leading" secondItem="GIN-2V-Egf" secondAttribute="leading" id="vTJ-8J-RUT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X78-oX-x22"/>
                     <connections>
                         <outlet property="fullImageView" destination="pvl-i4-DtO" id="gSJ-fM-Srg"/>
+                        <outlet property="scrollView" destination="fs6-pG-g3z" id="EWH-ow-cRP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UF2-62-1n7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="-338"/>
+            <point key="canvasLocation" x="1711.5942028985507" y="-338.16964285714283"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Q6t-sw-ewi">

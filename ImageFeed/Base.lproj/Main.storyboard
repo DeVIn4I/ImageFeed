@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wnI-CG-TLP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jyY-Qf-hg4">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -125,6 +124,7 @@
                     <navigationItem key="navigationItem" id="uty-er-da9"/>
                     <connections>
                         <outlet property="tableView" destination="Gn0-Ve-zQ4" id="RYT-md-SQf"/>
+                        <segue destination="wnI-CG-TLP" kind="show" identifier="ShowSingleImage" id="WR0-4N-fku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,12 +140,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-i4-DtO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="YP Black(iOS)"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GIN-2V-Egf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="YP Black(iOS)"/>
                         <constraints>
                             <constraint firstItem="GIN-2V-Egf" firstAttribute="trailing" secondItem="pvl-i4-DtO" secondAttribute="trailing" id="BEa-nR-4xm"/>
                             <constraint firstItem="pvl-i4-DtO" firstAttribute="top" secondItem="GIN-2V-Egf" secondAttribute="top" id="BNd-uN-KRy"/>
@@ -153,6 +153,7 @@
                             <constraint firstItem="GIN-2V-Egf" firstAttribute="bottom" secondItem="pvl-i4-DtO" secondAttribute="bottom" id="Tc3-Ug-wxF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="X78-oX-x22"/>
                     <connections>
                         <outlet property="fullImageView" destination="pvl-i4-DtO" id="gSJ-fM-Srg"/>
                     </connections>
@@ -273,8 +274,5 @@
         <namedColor name="YP White(iOS)">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

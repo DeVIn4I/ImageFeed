@@ -9,12 +9,19 @@ import UIKit
 
 final class SingleViewController: UIViewController {
 
-    @IBOutlet private weak var fullImageView: UIImageView!
+    @IBOutlet weak var fullImageView: UIImageView! {
+        didSet {
+            guard isViewLoaded else { return }
+            fullImageView.image = image
+        }
+    }
+    
+    var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        fullImageView.image = image
     }
     
 

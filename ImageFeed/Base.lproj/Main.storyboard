@@ -31,7 +31,7 @@
                         </tabBarAppearance>
                     </tabBar>
                     <connections>
-                        <segue destination="pAY-dJ-yYj" kind="relationship" relationship="viewControllers" id="Yd5-3t-jNY"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="2Gr-6I-Xus"/>
                         <segue destination="iXJ-W3-4EN" kind="relationship" relationship="viewControllers" id="4AU-KW-tUh"/>
                     </connections>
                 </tabBarController>
@@ -73,7 +73,7 @@
                                                     <state key="normal" image="Pressed"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 ноября 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-yJ-DUO">
-                                                    <rect key="frame" x="27.999999999999993" y="165.33333333333334" width="91.333333333333314" height="15.666666666666657"/>
+                                                    <rect key="frame" x="28.000000000000007" y="165.33333333333334" width="94.666666666666686" height="15.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="YandexSansDisplay-Regular" family="Yandex Sans Display" pointSize="13"/>
                                                     <color key="textColor" name="YP White(iOS)"/>
                                                     <nil key="highlightedColor"/>
@@ -121,6 +121,7 @@
                             <constraint firstAttribute="bottom" secondItem="Gn0-Ve-zQ4" secondAttribute="bottom" id="pgg-BD-8gj"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="epa-Fa-I1X"/>
                     <navigationItem key="navigationItem" id="uty-er-da9"/>
                     <connections>
                         <outlet property="tableView" destination="Gn0-Ve-zQ4" id="RYT-md-SQf"/>
@@ -129,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805.79710144927537" y="-338.16964285714283"/>
+            <point key="canvasLocation" x="-104" y="-314"/>
         </scene>
         <!--Single View Controller-->
         <scene sceneID="zBD-9H-QG5">
@@ -167,15 +168,25 @@
                                     <action selector="didTapBackButton" destination="wnI-CG-TLP" eventType="touchUpInside" id="ErU-lC-CvT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-Ih-aQg">
+                                <rect key="frame" x="181.66666666666666" y="759" width="51" height="51"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="ShareButton"/>
+                                <connections>
+                                    <action selector="didTapShareButton" destination="wnI-CG-TLP" eventType="touchUpInside" id="vAt-G6-tyu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GIN-2V-Egf"/>
                         <color key="backgroundColor" name="YP Black(iOS)"/>
                         <constraints>
                             <constraint firstItem="GIN-2V-Egf" firstAttribute="trailing" secondItem="fs6-pG-g3z" secondAttribute="trailing" id="R8a-ZK-fRi"/>
                             <constraint firstItem="SrF-ly-LNK" firstAttribute="leading" secondItem="GIN-2V-Egf" secondAttribute="leading" constant="40" id="dI1-uC-OV5"/>
+                            <constraint firstItem="GIN-2V-Egf" firstAttribute="bottom" secondItem="uAC-Ih-aQg" secondAttribute="bottom" constant="52" id="eHZ-XI-ufu"/>
                             <constraint firstItem="fs6-pG-g3z" firstAttribute="top" secondItem="yXm-gH-ieN" secondAttribute="top" id="fmr-kK-cDh"/>
                             <constraint firstAttribute="bottom" secondItem="fs6-pG-g3z" secondAttribute="bottom" id="kT9-kS-ej5"/>
                             <constraint firstItem="SrF-ly-LNK" firstAttribute="top" secondItem="yXm-gH-ieN" secondAttribute="top" constant="104" id="pJM-Ya-tVf"/>
+                            <constraint firstItem="uAC-Ih-aQg" firstAttribute="centerX" secondItem="yXm-gH-ieN" secondAttribute="centerX" id="qb3-Sb-rW1"/>
                             <constraint firstItem="fs6-pG-g3z" firstAttribute="leading" secondItem="GIN-2V-Egf" secondAttribute="leading" id="vTJ-8J-RUT"/>
                         </constraints>
                     </view>
@@ -187,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UF2-62-1n7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711.5942028985507" y="-338.16964285714283"/>
+            <point key="canvasLocation" x="948" y="-314"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Q6t-sw-ewi">
@@ -259,30 +270,6 @@
             </objects>
             <point key="canvasLocation" x="-104" y="376"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6ej-Am-QId">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pAY-dJ-yYj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="fi2-YU-blr"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hlj-MW-5Oj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" name="YP White(iOS)"/>
-                        <color key="barTintColor" name="YP White(iOS)"/>
-                        <navigationBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" name="YP Black(iOS)"/>
-                        </navigationBarAppearance>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="i7R-Ho-fp3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="32I-do-Fha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-104.34782608695653" y="-338.16964285714283"/>
-        </scene>
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
@@ -291,6 +278,7 @@
         <image name="Pressed" width="29.333333969116211" height="26"/>
         <image name="ProfileExitImage" width="20" height="22"/>
         <image name="ProfilePhoto" width="70" height="70"/>
+        <image name="ShareButton" width="51" height="51"/>
         <image name="tab_editorial_active" width="20" height="22"/>
         <image name="tab_profile_active" width="24" height="24"/>
         <namedColor name="YP Black(iOS)">

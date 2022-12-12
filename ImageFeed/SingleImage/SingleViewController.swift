@@ -35,8 +35,8 @@ final class SingleViewController: UIViewController {
     
     @IBAction private func didTapShareButton() {
         let items = [image]
-        let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
-        present(ac, animated: true)
+        let activityVC = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
+        present(activityVC, animated: true)
     }
     
     private func rescaleAndCenterImageInScrollView(image: UIImage) {
@@ -64,6 +64,7 @@ extension SingleViewController: UIScrollViewDelegate {
         fullImageView
     }
     
+    //Метод для центровки изображения после зума
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         let offsetX = max((scrollView.bounds.width - scrollView.contentSize.width) * 0.5, 0.0)
         let offsetY = max((scrollView.bounds.height - scrollView.contentSize.height) * 0.5, 0.0)

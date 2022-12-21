@@ -9,8 +9,8 @@ import UIKit
 
 final class SingleViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var fullImageView: UIImageView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var fullImageView: UIImageView!
     
     var image: UIImage! {
         didSet {

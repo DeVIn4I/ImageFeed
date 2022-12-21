@@ -18,12 +18,6 @@ final class ProfileViewController: UIViewController {
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileImageView)
         
-        profileImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,                                     constant: 32).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                  constant: 16).isActive = true
-        
         //Проверка на наличие изображения для кнопки Logout. Если ее нет, метод ничего не отобразит, но в консоль напечатает из-за чего это произошло.
         let buttonImage = UIImage(named: "ProfileExitImage")
         guard let buttonImage else {
@@ -38,9 +32,6 @@ final class ProfileViewController: UIViewController {
         button.tintColor = .ypRed
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
-        
-        button.centerYAnchor.constraint(equalTo:  profileImageView.centerYAnchor ).isActive = true
-        button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26).isActive = true
         
         //Настройка имени пользователя
         let profileNameLabel = UILabel()
@@ -66,11 +57,20 @@ final class ProfileViewController: UIViewController {
                                                                    profileDescription])
         profileLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileLabelStackView)
-        profileLabelStackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8).isActive = true
-        profileLabelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        profileLabelStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16).isActive = true
         profileLabelStackView.spacing = 8
         profileLabelStackView.axis = .vertical
+        
+        NSLayoutConstraint.activate([
+            profileImageView.heightAnchor.constraint(equalToConstant: 70),
+            profileImageView.widthAnchor.constraint(equalToConstant: 70),
+            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            button.centerYAnchor.constraint(equalTo:  profileImageView.centerYAnchor ),
+            button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
+            profileLabelStackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8),
+            profileLabelStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            profileLabelStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16)
+        ])
     }
     
     //Заглушка для настройки кнопки. Пока не используется

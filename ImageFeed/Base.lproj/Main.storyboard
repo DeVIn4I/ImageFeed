@@ -271,7 +271,11 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOC-IC-7bD">
-                                <rect key="frame" x="16" y="104" width="9" height="22"/>
+                                <rect key="frame" x="8" y="74" width="32" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8k5-Zc-kgj"/>
+                                    <constraint firstAttribute="width" constant="32" id="bot-2m-aGd"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="black_back_button"/>
                                 <connections>
@@ -282,9 +286,9 @@
                         <viewLayoutGuide key="safeArea" id="GA4-au-2di"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oOC-IC-7bD" firstAttribute="top" secondItem="GA4-au-2di" secondAttribute="top" constant="30" id="2Fv-d1-8E0"/>
                             <constraint firstItem="0ca-wh-xvE" firstAttribute="top" secondItem="KjV-5B-e3R" secondAttribute="top" id="8UJ-u8-W9y"/>
-                            <constraint firstItem="oOC-IC-7bD" firstAttribute="top" secondItem="GA4-au-2di" secondAttribute="top" constant="60" id="DEC-xh-nEn"/>
-                            <constraint firstItem="oOC-IC-7bD" firstAttribute="leading" secondItem="GA4-au-2di" secondAttribute="leading" constant="16" id="Ejj-Bu-7cD"/>
+                            <constraint firstItem="oOC-IC-7bD" firstAttribute="leading" secondItem="GA4-au-2di" secondAttribute="leading" constant="8" id="KaR-1R-bfl"/>
                             <constraint firstAttribute="bottom" secondItem="0ca-wh-xvE" secondAttribute="bottom" id="ljU-Lr-kCS"/>
                             <constraint firstAttribute="trailing" secondItem="0ca-wh-xvE" secondAttribute="trailing" id="q6a-Qk-M0v"/>
                             <constraint firstItem="0ca-wh-xvE" firstAttribute="leading" secondItem="KjV-5B-e3R" secondAttribute="leading" id="yLW-UR-rpJ"/>

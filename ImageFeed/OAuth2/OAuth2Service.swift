@@ -26,27 +26,29 @@ final class OAuth2Service {
                     completion(.failure(error))
                 }
             }
-                
-                if let response = response as? HTTPURLResponse,
-                   response.statusCode < 200 || response.statusCode > 300 {
-                    DispatchQueue.main.async {
-                        completion(.failure(NetworkError.codeError))
-                    }
+            
+            if let response = response as? HTTPURLResponse,
+               response.statusCode < 200 || response.statusCode > 300 {
+                DispatchQueue.main.async {
+                    completion(.failure(NetworkError.codeError))
                 }
-                
-                if let data = data {
-                    do {
-                        let response = try JSONDecoder().decode(OAuthTokenResponseBody.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(response.accessToken))
-                        }
-                    } catch let error {
-                        DispatchQueue.main.async {
-                            completion(.failure(error))
-                        }
+            }
+            
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let response = try decoder.decode(OAuthTokenResponseBody.self, from: data)
+                    DispatchQueue.main.async {
+                        completion(.success(response.accessToken))
+                    }
+                } catch let error {
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
                     }
                 }
             }
-        task.resume()
         }
+        task.resume()
     }
+}

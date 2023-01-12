@@ -14,8 +14,6 @@ final class WebViewViewController: UIViewController {
     
     weak var delegate: WebViewViewControllerDelegate?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,20 +32,28 @@ final class WebViewViewController: UIViewController {
         webView.load(request)
         updateProgress()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         webView.addObserver(self,
                             forKeyPath: #keyPath(WKWebView.estimatedProgress),
                             options: .new,
                             context: nil)
         updateProgress()
+//        setNeedsStatusBarAppearanceUpdate() - попытался сделать черный цвет статус бара на WebView
+    }
+    
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        .darkContent
+//    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
+
         webView.removeObserver(self,
                                forKeyPath: #keyPath(WKWebView.estimatedProgress),
                                context: nil)

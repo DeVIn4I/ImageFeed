@@ -1,7 +1,7 @@
 import UIKit
 
 class SplashViewController: UIViewController {
-
+    
     private let showAuthenticationScreenID = "ShowAuthenticationScreen"
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     private let oAuth2Service = OAuth2Service()
@@ -9,7 +9,6 @@ class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkToken()
-   
     }
     
     private func checkToken() {
@@ -20,15 +19,6 @@ class SplashViewController: UIViewController {
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        setNeedsStatusBarAppearanceUpdate()
-//    }
-//
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        .lightContent
-//    }
-    
     func switchToTabBarController() {
         guard let window = UIApplication.shared.windows.first else { fatalError("Invalid Configuration")}
         
@@ -36,7 +26,6 @@ class SplashViewController: UIViewController {
             .instantiateViewController(withIdentifier: "TabBarViewController")
         window.rootViewController = tabBarController
     }
-    
 }
 
 extension SplashViewController {

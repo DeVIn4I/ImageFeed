@@ -10,6 +10,7 @@ final class AuthViewController: UIViewController {
     private let oAuth2Service = OAuth2Service()
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     weak var delegate: AuthViewControllerDelegate?
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == showWebViewSegueID {
             guard let webViewViewController = segue.destination as? WebViewViewController else { fatalError("Failed to prepare for \(showWebViewSegueID)") }
@@ -29,8 +30,6 @@ extension AuthViewController: WebViewViewControllerDelegate {
             case .success(let token):
                 self.oAuth2TokenStorage.token = token
                 self.delegate?.authViewController(self, didAuthenticateWithCode: code)
-                
-            
                 print("✅ Your token - \(token)")
             case .failure(let error):
                 print(error)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GeA-Hv-ObI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MHk-XB-vZT">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -21,7 +21,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="nAm-ah-ETC">
             <objects>
-                <tabBarController id="jyY-Qf-hg4" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" id="jyY-Qf-hg4" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wdU-4j-6C0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -74,7 +74,7 @@
                                                     <state key="normal" image="Pressed"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 ноября 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9C-yJ-DUO">
-                                                    <rect key="frame" x="28.000000000000007" y="165.33333333333334" width="94.666666666666686" height="15.666666666666657"/>
+                                                    <rect key="frame" x="27.999999999999993" y="165.33333333333334" width="91.333333333333314" height="15.666666666666657"/>
                                                     <fontDescription key="fontDescription" name="YandexSansDisplay-Regular" family="Yandex Sans Display" pointSize="13"/>
                                                     <color key="textColor" name="YP White(iOS)"/>
                                                     <nil key="highlightedColor"/>
@@ -326,6 +326,33 @@
             </objects>
             <point key="canvasLocation" x="-104" y="376"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="F4U-O1-2bm">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="MHk-XB-vZT" customClass="SplashViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="diZ-XD-oaV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YPLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="aL0-SP-Obx">
+                                <rect key="frame" x="169.66666666666666" y="409" width="75" height="78"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bjq-Gs-3p2"/>
+                        <color key="backgroundColor" name="YP Black(iOS)"/>
+                        <constraints>
+                            <constraint firstItem="aL0-SP-Obx" firstAttribute="centerX" secondItem="diZ-XD-oaV" secondAttribute="centerX" id="bIm-xH-n1Q"/>
+                            <constraint firstItem="aL0-SP-Obx" firstAttribute="centerY" secondItem="diZ-XD-oaV" secondAttribute="centerY" id="uR7-uF-rla"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="GeA-Hv-ObI" kind="presentation" identifier="ShowAuthenticationScreen" modalPresentationStyle="fullScreen" id="qd2-3V-bev"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BWc-2w-hfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2849" y="1067"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lkW-15-jac">
             <objects>
@@ -351,6 +378,7 @@
         <image name="BackButton" width="9" height="16"/>
         <image name="Pressed" width="29.333333969116211" height="26"/>
         <image name="ShareButton" width="51" height="51"/>
+        <image name="YPLaunch" width="75" height="78"/>
         <image name="auth_screen_logo" width="60" height="60"/>
         <image name="black_back_button" width="9" height="16"/>
         <image name="tab_editorial_active" width="20" height="22"/>

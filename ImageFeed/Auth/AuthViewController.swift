@@ -9,6 +9,7 @@ final class AuthViewController: UIViewController {
     private let showWebViewSegueID = "ShowWebView"
     private let oAuth2Service = OAuth2Service()
     private let oAuth2TokenStorage = OAuth2TokenStorage()
+    private let splashViewController = SplashViewController()
     weak var delegate: AuthViewControllerDelegate?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -28,9 +29,10 @@ extension AuthViewController: WebViewViewControllerDelegate {
             
             switch result {
             case .success(let token):
+                print("✅ Your token - \(token)")
                 self.oAuth2TokenStorage.token = token
                 self.delegate?.authViewController(self, didAuthenticateWithCode: code)
-                print("✅ Your token - \(token)")
+                self.splashViewController.switchToTabBarController()
             case .failure(let error):
                 print(error)
             }

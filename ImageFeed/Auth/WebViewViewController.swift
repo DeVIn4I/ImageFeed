@@ -16,7 +16,6 @@ final class WebViewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         webView.navigationDelegate = self
         
         var urlComponents = URLComponents(string: unsplashAuthorizeURLString)!
@@ -40,17 +39,8 @@ final class WebViewViewController: UIViewController {
                             options: .new,
                             context: nil)
         updateProgress()
-//        setNeedsStatusBarAppearanceUpdate() - попытался сделать черный цвет статус бара на WebView
     }
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        .darkContent
-//    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
-    
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
@@ -80,7 +70,6 @@ final class WebViewViewController: UIViewController {
     @IBAction private func didTapBackButton(_ sender: Any) {
         delegate?.webViewViewControllerDidCancel(self)
     }
-    
 }
 
 extension WebViewViewController: WKNavigationDelegate {
@@ -101,7 +90,9 @@ extension WebViewViewController: WKNavigationDelegate {
             let urlComponents = URLComponents(string: url.absoluteString),
             urlComponents.path == "/oauth/authorize/native",
             let items = urlComponents.queryItems,
-            let codeItem = items.first(where: { $0.name == "code" }) else { return nil }
+            let codeItem = items.first(where: { $0.name == "code" })
+        else { return nil }
+        
             return codeItem.value
     }
 }

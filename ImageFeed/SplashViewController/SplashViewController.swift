@@ -54,7 +54,7 @@ extension SplashViewController: AuthViewControllerDelegate {
     }
     
     private func fetchOAuthToken(_ code: String) {
-        oAuth2Service.fetchAuthToken(code: code) { [weak self] result in
+        oAuth2Service.fetchOAuthToken(code) { [weak self] result in
             guard let self else { return }
             
             switch result {
@@ -64,6 +64,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 self.switchToTabBarController()
                 ProgressHUD.dismiss()
             case .failure(let error):
+                print("⚠️⚠️⚠️")
                 print(error)
                 ProgressHUD.dismiss()
             }

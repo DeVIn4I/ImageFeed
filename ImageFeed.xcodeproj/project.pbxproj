@@ -10,6 +10,7 @@
 		B3050E1A293DD71100BE984E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3050E19293DD71100BE984E /* ProfileViewController.swift */; };
 		B3050E1C293E068400BE984E /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3050E1B293E068400BE984E /* YS Display-Bold.ttf */; };
 		B3050E1F293E17C500BE984E /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3050E1E293E17C500BE984E /* SingleViewController.swift */; };
+		B320B5BB298105420019FE99 /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */; };
 		B38DBBF1292759C0002FEEE2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DBBF0292759C0002FEEE2 /* UIColor+Extensions.swift */; };
 		B3993321296FE03500047519 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3993320296FE03500047519 /* SplashViewController.swift */; };
 		B399332629743C9700047519 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B399332529743C9700047519 /* ProgressHUD */; };
@@ -32,6 +33,7 @@
 		B3050E19293DD71100BE984E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B3050E1B293E068400BE984E /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		B3050E1E293E17C500BE984E /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
+		B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		B38DBBF0292759C0002FEEE2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B3993320296FE03500047519 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B3A065A4292B87FD00ED8411 /* YS Display-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Regular.ttf"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				B3050E18293DD6EE00BE984E /* Profile */,
 				B3CD572C2928F2E600873F54 /* ImagesList */,
 				B38DBBF229275B74002FEEE2 /* Resources */,
+				B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				B3ECF92E2969CE2300C27F65 /* AuthViewController.swift in Sources */,
 				B3D9C29F296DE31A008A210E /* OAuth2TokenStorage.swift in Sources */,
 				B3ECF92B2969AAA800C27F65 /* Constants.swift in Sources */,
+				B320B5BB298105420019FE99 /* UIBlockingProgressHUD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

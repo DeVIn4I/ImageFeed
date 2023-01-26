@@ -2,20 +2,26 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    let token = OAuth2TokenStorage().token
+    let profileService = ProfileService()
+    
+    let profileImageView = UIImageView(image: .profileImage).withConstraints()
+    let profileNameLabel = UILabel(text: "", font: .ysBold(23))
+    let userNameLabel = UILabel(text: "", textColor: .ypGray)
+    let profileDescription = UILabel(text: "")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        fetchProfile()
         
     }
     //Общий метод для отображения всех View на экране
     func setupUI() {
         
         //Отображение изображения профиля
-        let profileImage = UIImage(named: "ProfilePhoto")
-        let profileImageView = UIImageView(image: profileImage)
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileImageView)
         
         //Проверка на наличие изображения для кнопки Logout. Если ее нет, метод ничего не отобразит, но в консоль напечатает из-за чего это произошло.
@@ -32,24 +38,6 @@ final class ProfileViewController: UIViewController {
         button.tintColor = .ypRed
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
-        
-        //Настройка имени пользователя
-        let profileNameLabel = UILabel()
-        profileNameLabel.text = "Екатерина Новикова"
-        profileNameLabel.textColor = .ypWhite
-        profileNameLabel.font = UIFont(name: "YandexSansDisplay-Bold", size: 23)
-        
-        //Настройка никнейма пользователя
-        let userNameLabel = UILabel()
-        userNameLabel.text = "@ekaterina_nov"
-        userNameLabel.textColor = .ypGray
-        userNameLabel.font = UIFont(name: "YandexSansDisplay-Regular", size: 13)
-        
-        //Настройка описания профиля пользователя
-        let profileDescription = UILabel()
-        profileDescription.text = "Описание"
-        profileDescription.textColor = .ypWhite
-        profileDescription.font = UIFont(name: "YandexSansDisplay-Regular", size: 13)
         
         //Настройка StackView для всех Label(Имя, Ник, Описание)
         let profileLabelStackView = UIStackView(arrangedSubviews: [profileNameLabel,
@@ -73,7 +61,70 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
+    func fetchProfile() {
+        profileService.fetchProfile(token) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let model):
+                self.update(profile: model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func update(profile: ProfileService.Profile) {
+        profileNameLabel.text = profile.name
+        userNameLabel.text = profile.loginName
+        profileDescription.text = profile.bio
+    }
+    
     //Заглушка для настройки кнопки. Пока не используется
     @objc
     private func didTapLogoutButton() {}
+}
+
+extension UIImage {
+    static let profileImage = UIImage(named: "ProfilePhoto")
+}
+
+extension UIView {
+    func withConstraints(_ with: Bool = true) -> Self {
+        translatesAutoresizingMaskIntoConstraints = !with
+        return self
+    }
+}
+
+extension UIFont {
+    static func ysRegular(_ size: CGFloat) -> UIFont {
+        UIFont(name: "YandexSansDisplay-Regular", size: size) ?? .systemFont(ofSize: size)
+    }
+    
+    static func ysBold(_ size: CGFloat) -> UIFont {
+        UIFont(name: "YandexSansDisplay-Bold", size: size) ?? .boldSystemFont(ofSize: size)
+    }
+}
+
+extension UILabel {
+    static func label(text: String? = nil,
+                      textColor: UIColor = .ypWhite,
+                      font: UIFont = .ysRegular(13)) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.textColor = textColor
+        label.font = font
+        
+        return label
+    }
+    convenience init(text: String? = nil,
+                     textColor: UIColor = .ypWhite,
+                     font: UIFont = .ysRegular(13),
+                     withConstraints: Bool = true) {
+        self.init()
+        self.text = text
+        self.textColor = textColor
+        self.font = font
+        translatesAutoresizingMaskIntoConstraints = !withConstraints
+    }
 }

@@ -2,12 +2,13 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    private let profileService = ProfileService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        
+  
     }
     //Общий метод для отображения всех View на экране
     func setupUI() {

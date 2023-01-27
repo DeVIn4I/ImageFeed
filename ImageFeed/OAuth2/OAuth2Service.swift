@@ -1,16 +1,26 @@
 import Foundation
 
 final class OAuth2Service {
+    
     static let shared = OAuth2Service()
     private let urlSession = URLSession.shared
+    private var task: URLSessionTask?
+    private var lastCode: String?
+    
     private (set) var authToken: String? {
         get { OAuth2TokenStorage().token }
         set { OAuth2TokenStorage().token = newValue }
     }
     
     func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
+        assert(Thread.isMainThread)
+        
+        if lastCode == code { return }
+        task?.cancel()
+        lastCode = code
+        
         let request = authTokenRequest(code: code)
-        urlSession.dataTask(type: OAuthTokenResponseBody.self, for: request) { [weak self] result in
+        let task = urlSession.dataTask(type: OAuthTokenResponseBody.self, for: request) { [weak self] result in
             switch result {
             case .success(let body):
                 self?.authToken = body.accessToken
@@ -19,6 +29,7 @@ final class OAuth2Service {
                 completion(.failure(error))
             }
         }
+        self.task = task
     }
 }
 

@@ -4,19 +4,41 @@ final class ProfileViewController: UIViewController {
     
     private let profileService = ProfileService()
     
+    private let profileImageView = UIImageView(image: .profileImage).withConstraints()
+    private let profileNameLabel = UILabel(text: "", font: .ysBold(23))
+    private let loginNameLabel = UILabel(text: "", textColor: .ypGray)
+    private let profileDescription = UILabel(text: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-  
+        fetchProfile()
     }
+    
+    private func updateProfileInfo(profile: ProfileService.Profile) {
+        profileNameLabel.text = profile.name
+        loginNameLabel.text = profile.loginName
+        profileDescription.text = profile.bio
+    }
+    
+    private func fetchProfile() {
+        profileService.fetchProfile { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let model):
+                self.updateProfileInfo(profile: model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
     //Общий метод для отображения всех View на экране
     func setupUI() {
         
-        //Отображение изображения профиля
-        let profileImage = UIImage(named: "ProfilePhoto")
-        let profileImageView = UIImageView(image: profileImage)
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(profileImageView)
         
         //Проверка на наличие изображения для кнопки Logout. Если ее нет, метод ничего не отобразит, но в консоль напечатает из-за чего это произошло.
@@ -33,28 +55,11 @@ final class ProfileViewController: UIViewController {
         button.tintColor = .ypRed
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
-        
-        //Настройка имени пользователя
-        let profileNameLabel = UILabel()
-        profileNameLabel.text = "Екатерина Новикова"
-        profileNameLabel.textColor = .ypWhite
-        profileNameLabel.font = UIFont(name: "YandexSansDisplay-Bold", size: 23)
-        
-        //Настройка никнейма пользователя
-        let userNameLabel = UILabel()
-        userNameLabel.text = "@ekaterina_nov"
-        userNameLabel.textColor = .ypGray
-        userNameLabel.font = UIFont(name: "YandexSansDisplay-Regular", size: 13)
-        
-        //Настройка описания профиля пользователя
-        let profileDescription = UILabel()
-        profileDescription.text = "Описание"
-        profileDescription.textColor = .ypWhite
-        profileDescription.font = UIFont(name: "YandexSansDisplay-Regular", size: 13)
+ 
         
         //Настройка StackView для всех Label(Имя, Ник, Описание)
         let profileLabelStackView = UIStackView(arrangedSubviews: [profileNameLabel,
-                                                                   userNameLabel,
+                                                                   loginNameLabel,
                                                                    profileDescription])
         profileLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileLabelStackView)
@@ -77,4 +82,5 @@ final class ProfileViewController: UIViewController {
     //Заглушка для настройки кнопки. Пока не используется
     @objc
     private func didTapLogoutButton() {}
+    
 }

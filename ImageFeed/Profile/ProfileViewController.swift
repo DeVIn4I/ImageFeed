@@ -13,12 +13,13 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        updateProfileInfo(profile: profileService.profile)
     }
     
-    private func updateProfileInfo(profile: ProfileService.Profile) {
-        profileNameLabel.text = profile.name
-        loginNameLabel.text = profile.loginName
-        profileDescription.text = profile.bio
+    private func updateProfileInfo(profile: ProfileService.Profile?) {
+        profileNameLabel.text = profile?.name ?? ""
+        loginNameLabel.text = profile?.loginName ?? ""
+        profileDescription.text = profile?.bio
     }
 
     //Общий метод для отображения всех View на экране

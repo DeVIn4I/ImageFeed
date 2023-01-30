@@ -2,7 +2,7 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
-    private let profileService = ProfileService()
+    private let profileService = ProfileService.shared
     
     private let profileImageView = UIImageView(image: .profileImage).withConstraints()
     private let profileNameLabel = UILabel(text: "", font: .ysBold(23))
@@ -13,7 +13,6 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-        fetchProfile()
     }
     
     private func updateProfileInfo(profile: ProfileService.Profile) {
@@ -21,23 +20,9 @@ final class ProfileViewController: UIViewController {
         loginNameLabel.text = profile.loginName
         profileDescription.text = profile.bio
     }
-    
-    private func fetchProfile() {
-        profileService.fetchProfile { [weak self] result in
-            guard let self else { return }
-            
-            switch result {
-            case .success(let model):
-                self.updateProfileInfo(profile: model)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
 
     //Общий метод для отображения всех View на экране
     func setupUI() {
-        
         
         view.addSubview(profileImageView)
         

@@ -11,6 +11,10 @@ typealias ProfileBlock = (Result<ProfileService.Profile, Error>) -> Void
 
 class ProfileService {
     
+    static let shared = ProfileService()
+    
+    private(set) var profile: Profile?
+    
     struct ProfileResult: Decodable {
         let username: String
         let firstName: String?
@@ -36,10 +40,13 @@ class ProfileService {
     func fetchProfile(completion: ProfileBlock?) {
         let request = URLRequest.makeHTTPRequest(path: "me", token: OAuth2TokenStorage().token)
         
-        URLSession.shared.dataTask(type: ProfileResult.self, for: request) { result in
+        URLSession.shared.dataTask(type: ProfileResult.self, for: request) { [weak self] result in
+            guard let self else { return }
+            
             switch result {
             case .success(let model):
                 completion?(.success(model.profile))
+                self.profile = model.profile
             case .failure(let error):
                 completion?(.failure(error))
             }

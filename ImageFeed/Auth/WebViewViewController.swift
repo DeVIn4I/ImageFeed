@@ -11,11 +11,21 @@ final class WebViewViewController: UIViewController {
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var progressView: UIProgressView!
     
+    private var estimatedProgressObservation: NSKeyValueObservation?
     
     weak var delegate: WebViewViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        estimatedProgressObservation = webView.observe(
+            \.estimatedProgress,
+             options: [],
+             changeHandler: { [weak self] _, _ in
+                 guard let self else { return }
+                 self.updateProgress()
+             })
+        
         webView.navigationDelegate = self
         
         var urlComponents = URLComponents(string: unsplashAuthorizeURLString)!
@@ -32,36 +42,6 @@ final class WebViewViewController: UIViewController {
         updateProgress()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        webView.addObserver(self,
-                            forKeyPath: #keyPath(WKWebView.estimatedProgress),
-                            options: .new,
-                            context: nil)
-        updateProgress()
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        webView.removeObserver(self,
-                               forKeyPath: #keyPath(WKWebView.estimatedProgress),
-                               context: nil)
-    }
-    
-    override func observeValue(
-        forKeyPath keyPath: String?,
-        of object: Any?,
-        change: [NSKeyValueChangeKey : Any]?,
-        context: UnsafeMutableRawPointer?
-    ) {
-        if keyPath == #keyPath(WKWebView.estimatedProgress) {
-            updateProgress()
-        } else {
-            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-        }
-    }
-    
     private func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001

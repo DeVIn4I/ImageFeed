@@ -15,9 +15,7 @@ class SplashViewController: UIViewController {
     
     private func checkToken() {
         if oAuth2TokenStorage.token != nil {
-            
             fetchProfile()
-//            switchToTabBarController()
         } else {
             performSegue(withIdentifier: showAuthenticationScreenID, sender: nil)
         }
@@ -28,7 +26,8 @@ class SplashViewController: UIViewController {
             guard let self else { return }
             
             switch result {
-            case .success:
+            case .success(let profile):
+                ProfileImageService.shared.fetchProfileImageURL(username: profile.username) { _ in }
                 UIBlockingProgressHUD.dismiss()
                 self.switchToTabBarController()
             case .failure(let error):
@@ -79,8 +78,6 @@ extension SplashViewController: AuthViewControllerDelegate {
                 print("✅ token - \(token)")
                 self.oAuth2TokenStorage.token = token
                 self.fetchProfile()
-//                self.switchToTabBarController()
-//                UIBlockingProgressHUD.dismiss()
             case .failure(let error):
                 print("⚠️⚠️⚠️")
                 print(error)

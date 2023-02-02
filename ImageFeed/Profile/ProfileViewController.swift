@@ -9,11 +9,34 @@ final class ProfileViewController: UIViewController {
     private let loginNameLabel = UILabel(text: "", textColor: .ypGray)
     private let profileDescription = UILabel(text: "")
     
+    private var profileImageServiceObserver: NSObjectProtocol?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(
+                forName: ProfileImageService.DidChangeNotification,
+                object: nil,
+                queue: .main) { [weak self] _ in
+                    guard let self else { return }
+                    self.updateAvatar()
+                }
+        updateAvatar()
+        
+        
         setupUI()
         updateProfileInfo(profile: profileService.profile)
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = ProfileImageService.shared.avatarURL,
+            let url = URL(string: profileImageURL)
+        else { return }
+        // TODO [Sprint 11] Обновить аватар, используя Kingfisher
+        
     }
     
     private func updateProfileInfo(profile: ProfileService.Profile?) {

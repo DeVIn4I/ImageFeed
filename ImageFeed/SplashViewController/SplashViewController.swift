@@ -15,7 +15,8 @@ class SplashViewController: UIViewController {
     
     private func checkToken() {
         if oAuth2TokenStorage.token != nil {
-            UIBlockingProgressHUD.show()
+//            UIBlockingProgressHUD.show()
+//            switchToTabBarController()
             fetchProfile()
         } else {
             performSegue(withIdentifier: showAuthenticationScreenID, sender: nil)

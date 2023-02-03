@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
     
@@ -24,8 +25,6 @@ final class ProfileViewController: UIViewController {
                     self.updateAvatar()
                 }
         updateAvatar()
-        
-        
         setupUI()
         updateProfileInfo(profile: profileService.profile)
     }
@@ -35,19 +34,37 @@ final class ProfileViewController: UIViewController {
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
         else { return }
-        // TODO [Sprint 11] Обновить аватар, используя Kingfisher
+//        let cache = ImageCache.default
+//        cache.clearCache()
         
+        let processor = RoundCornerImageProcessor(cornerRadius: profileImageView.frame.size.height / 2)
+        profileImageView.kf.indicatorType = .activity
+        profileImageView.kf.setImage(with: url,
+                                     placeholder: UIImage(named: "ProfilePlaceholder"),
+                                     options: [.processor(processor)]) { [weak self] result in
+            guard let self else { return }
+            
+            switch result {
+            case .success(let model):
+                self.profileImageView.image = model.image
+                self.profileImageView.backgroundColor = .clear
+            case .failure(let error):
+                print(error)
+                self.updateAvatar()
+            }
+        }
     }
     
     private func updateProfileInfo(profile: ProfileService.Profile?) {
-        profileNameLabel.text = profile?.name ?? ""
-        loginNameLabel.text = profile?.loginName ?? ""
+        profileNameLabel.text = profile?.name ?? "1"
+        loginNameLabel.text = profile?.loginName ?? "1"
         profileDescription.text = profile?.bio
     }
 
     //Общий метод для отображения всех View на экране
     func setupUI() {
-        
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
+        profileImageView.clipsToBounds = true
         view.addSubview(profileImageView)
         
         //Проверка на наличие изображения для кнопки Logout. Если ее нет, метод ничего не отобразит, но в консоль напечатает из-за чего это произошло.

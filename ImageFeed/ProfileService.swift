@@ -36,8 +36,8 @@ class ProfileService {
         let loginName: String?
         let bio: String?
     }
-    
-    func fetchProfile(completion: ProfileBlock?) {
+    //!!!
+    func fetchProfile(completion: @escaping ProfileBlock) {
         let request = URLRequest.makeHTTPRequest(path: "me", token: OAuth2TokenStorage().token)
         
         URLSession.shared.dataTask(type: ProfileResult.self, for: request) { [weak self] result in
@@ -45,10 +45,10 @@ class ProfileService {
             
             switch result {
             case .success(let model):
-                completion?(.success(model.profile))
+                completion(.success(model.profile))
                 self.profile = model.profile
             case .failure(let error):
-                completion?(.failure(error))
+                completion(.failure(error))
             }
         }
     }

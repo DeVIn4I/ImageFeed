@@ -15,6 +15,7 @@ class SplashViewController: UIViewController {
     
     private func checkToken() {
         if oAuth2TokenStorage.token != nil {
+            UIBlockingProgressHUD.show()
             fetchProfile()
         } else {
             performSegue(withIdentifier: showAuthenticationScreenID, sender: nil)
@@ -43,6 +44,17 @@ class SplashViewController: UIViewController {
             .instantiateViewController(withIdentifier: "TabBarViewController")
         window.rootViewController = tabBarController
     }
+    
+    private func showAlert(on vc: UIViewController) {
+            let alert = UIAlertController(
+                title: "Что-то пошло не так(",
+                message: "Не удалось войти в систему",
+                preferredStyle: .alert
+            )
+            let action = UIAlertAction(title: "Ок", style: .cancel)
+            alert.addAction(action)
+            vc.present(alert, animated: true, completion: nil)
+        }
 }
 
 extension SplashViewController {
@@ -81,6 +93,7 @@ extension SplashViewController: AuthViewControllerDelegate {
             case .failure(let error):
                 print("⚠️⚠️⚠️")
                 print(error)
+                self.showAlert(on: self)
                 UIBlockingProgressHUD.dismiss()
             }
         }

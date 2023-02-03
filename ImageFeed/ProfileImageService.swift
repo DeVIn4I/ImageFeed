@@ -32,9 +32,9 @@ final class ProfileImageService {
             case .success(let image):
                 completion(.success(image))
                 
-//                NotificationCenter.default.post(name: ProfileImageService.DidChangeNotification,
-//                                                object: self,
-//                                                userInfo: ["URL": profileImageURL])
+                NotificationCenter.default.post(name: ProfileImageService.DidChangeNotification,
+                                                object: self,
+                                                userInfo: ["URL": image])
                 
                 self.avatarURL = image.profileImage.small
                 

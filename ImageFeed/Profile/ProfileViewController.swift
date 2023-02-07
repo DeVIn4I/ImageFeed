@@ -11,7 +11,7 @@ final class ProfileViewController: UIViewController {
     private let profileDescription = UILabel(text: "")
     
     private var profileImageServiceObserver: NSObjectProtocol?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,20 +58,18 @@ final class ProfileViewController: UIViewController {
         loginNameLabel.text = profile?.loginName ?? "1"
         profileDescription.text = profile?.bio
     }
-
+    
     //Общий метод для отображения всех View на экране
     func setupUI() {
         profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
         profileImageView.clipsToBounds = true
         view.addSubview(profileImageView)
-        
         //Проверка на наличие изображения для кнопки Logout. Если ее нет, метод ничего не отобразит, но в консоль напечатает из-за чего это произошло.
         let buttonImage = UIImage(named: "ProfileExitImage")
         guard let buttonImage else {
             print("Ошибка загрузки изображения для кнопки Logout")
             return
         }
-        
         //Настройка кнопки выхода из профиля
         let button = UIButton.systemButton(with: buttonImage,
                                            target: self,
@@ -79,8 +77,6 @@ final class ProfileViewController: UIViewController {
         button.tintColor = .ypRed
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
- 
-        
         //Настройка StackView для всех Label(Имя, Ник, Описание)
         let profileLabelStackView = UIStackView(arrangedSubviews: [profileNameLabel,
                                                                    loginNameLabel,

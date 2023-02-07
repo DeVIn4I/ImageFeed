@@ -90,6 +90,8 @@
 		B3050E18293DD6EE00BE984E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B3A2044C2987CB50001F3F54 /* ProfileImageService.swift */,
+				B3CBAB1D2983E4420066C8D8 /* ProfileService.swift */,
 				B3050E19293DD71100BE984E /* ProfileViewController.swift */,
 			);
 			path = Profile;
@@ -172,6 +174,7 @@
 		B3B747632926433300205CB4 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B3F182C72992E36900D59083 /* Helpers */,
 				B36053152983CC4A009F8EDA /* Extensions */,
 				B399331F296FE01000047519 /* SplashViewController */,
 				B3D9C29B296DE2DD008A210E /* OAuth2 */,
@@ -184,9 +187,6 @@
 				B3050E18293DD6EE00BE984E /* Profile */,
 				B3CD572C2928F2E600873F54 /* ImagesList */,
 				B38DBBF229275B74002FEEE2 /* Resources */,
-				B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */,
-				B3CBAB1D2983E4420066C8D8 /* ProfileService.swift */,
-				B3A2044C2987CB50001F3F54 /* ProfileImageService.swift */,
 				B3F182C529926AE900D59083 /* TabBarController.swift */,
 			);
 			path = ImageFeed;
@@ -225,6 +225,14 @@
 				B3ECF92F2969D04300C27F65 /* WebViewViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		B3F182C72992E36900D59083 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

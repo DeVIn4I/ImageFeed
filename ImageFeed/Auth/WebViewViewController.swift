@@ -41,12 +41,12 @@ final class WebViewViewController: UIViewController {
         webView.load(request)
         updateProgress()
     }
-
+    
     private func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001
     }
-
+    
     @IBAction private func didTapBackButton(_ sender: Any) {
         delegate?.webViewViewControllerDidCancel(self)
     }
@@ -73,6 +73,6 @@ extension WebViewViewController: WKNavigationDelegate {
             let codeItem = items.first(where: { $0.name == "code" })
         else { return nil }
         
-            return codeItem.value
+        return codeItem.value
     }
 }

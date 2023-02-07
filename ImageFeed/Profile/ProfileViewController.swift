@@ -34,8 +34,6 @@ final class ProfileViewController: UIViewController {
             let profileImageURL = ProfileImageService.shared.avatarURL,
             let url = URL(string: profileImageURL)
         else { return }
-//        let cache = ImageCache.default
-//        cache.clearCache()
         
         let processor = RoundCornerImageProcessor(cornerRadius: profileImageView.frame.size.height / 2)
         profileImageView.kf.indicatorType = .activity

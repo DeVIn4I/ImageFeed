@@ -20,7 +20,7 @@ class SplashViewController: UIViewController {
     }
     //MARK: SetupUI
     private func setupUI() {
-        view.backgroundColor = .ypRed
+        view.backgroundColor = .ypBlack
         view.addSubview(ypLaunchLogo)
         
         NSLayoutConstraint.activate([
@@ -40,13 +40,14 @@ class SplashViewController: UIViewController {
     private func fetchProfile() {
         profileService.fetchProfile { [weak self] result in
             guard let self else { return }
+            UIBlockingProgressHUD.dismiss()
             
             switch result {
             case .success(let profile):
                 ProfileImageService.shared.fetchProfileImageURL(username: profile.username) { _ in }
-                UIBlockingProgressHUD.dismiss()
                 self.switchToTabBarController()
             case .failure(let error):
+                self.showAlert(on: self)
                 print(error.localizedDescription)
             }
         }
@@ -100,8 +101,8 @@ extension SplashViewController: AuthViewControllerDelegate {
             case .failure(let error):
                 print("⚠️⚠️⚠️")
                 print(error)
-                self.showAlert(on: self)
                 UIBlockingProgressHUD.dismiss()
+                self.showAlert(on: self)
             }
         }
     }

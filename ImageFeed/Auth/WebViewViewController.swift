@@ -18,14 +18,7 @@ final class WebViewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        estimatedProgressObservation = webView.observe(
-            \.estimatedProgress,
-             options: [],
-             changeHandler: { [weak self] _, _ in
-                 guard let self else { return }
-                 self.updateProgress()
-             })
-        
+        webViewObserver()
         webView.navigationDelegate = self
         
         var urlComponents = URLComponents(string: unsplashAuthorizeURLString)!
@@ -40,6 +33,16 @@ final class WebViewViewController: UIViewController {
         let request = URLRequest(url: url)
         webView.load(request)
         updateProgress()
+    }
+    
+    private func webViewObserver() {
+        estimatedProgressObservation = webView.observe(
+            \.estimatedProgress,
+             options: [],
+             changeHandler: { [weak self] _, _ in
+                 guard let self else { return }
+                 self.updateProgress()
+             })
     }
     
     private func updateProgress() {

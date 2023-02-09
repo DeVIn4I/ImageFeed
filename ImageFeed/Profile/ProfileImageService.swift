@@ -2,7 +2,7 @@ import Foundation
 
 final class ProfileImageService {
     
-    static let DidChangeNotification = Notification.Name("ProfileImageProviderDidChange")
+    static let didChangeNotification = Notification.Name("ProfileImageProviderDidChange")
     
     static let shared = ProfileImageService()
     private let task = URLSession.shared
@@ -21,9 +21,7 @@ final class ProfileImageService {
     
     
     func fetchProfileImageURL(username: String, completion: @escaping (Result<ProfileImageService.UserResult, Error>) -> Void) {
-        
-        //TODO - Task cancel!!!
-        let request = URLRequest.makeHTTPRequest(path: "users/\(username)", token: OAuth2TokenStorage().token)
+        let request = URLRequest.makeHTTPRequest(path: "users/\(username)", token: OAuth2TokenStorage.shared.token)
         print(request)
         task.dataTask(type: UserResult.self, for: request) { [weak self] result in
             guard let self else { return }
@@ -32,7 +30,7 @@ final class ProfileImageService {
             case .success(let image):
                 completion(.success(image))
                 
-                NotificationCenter.default.post(name: ProfileImageService.DidChangeNotification,
+                NotificationCenter.default.post(name: ProfileImageService.didChangeNotification,
                                                 object: self,
                                                 userInfo: ["URL": image])
                 

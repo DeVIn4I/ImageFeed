@@ -18,7 +18,7 @@ final class ProfileViewController: UIViewController {
         
         profileImageServiceObserver = NotificationCenter.default
             .addObserver(
-                forName: ProfileImageService.DidChangeNotification,
+                forName: ProfileImageService.didChangeNotification,
                 object: nil,
                 queue: .main) { [weak self] _ in
                     guard let self else { return }
@@ -54,8 +54,8 @@ final class ProfileViewController: UIViewController {
     }
     
     private func updateProfileInfo(profile: ProfileService.Profile?) {
-        profileNameLabel.text = profile?.name ?? "1"
-        loginNameLabel.text = profile?.loginName ?? "1"
+        profileNameLabel.text = profile?.name ?? "Your name"
+        loginNameLabel.text = profile?.loginName ?? "@user"
         profileDescription.text = profile?.bio
     }
     
@@ -63,6 +63,7 @@ final class ProfileViewController: UIViewController {
     func setupUI() {
         profileImageView.layer.cornerRadius = profileImageView.frame.size.height / 2
         profileImageView.clipsToBounds = true
+        view.backgroundColor = .ypBlack
         view.addSubview(profileImageView)
         //Проверка на наличие изображения для кнопки Logout. Если ее нет, метод ничего не отобразит, но в консоль напечатает из-за чего это произошло.
         let buttonImage = UIImage(named: "ProfileExitImage")

@@ -25,8 +25,10 @@ final class OAuth2Service {
             case .success(let body):
                 self?.authToken = body.accessToken
                 completion(.success(body.accessToken))
+                self?.task = nil
             case .failure(let error):
                 completion(.failure(error))
+                self?.lastCode = nil
             }
         }
         self.task = task

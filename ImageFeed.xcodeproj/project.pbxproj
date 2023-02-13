@@ -38,6 +38,7 @@
 		B3ECF9302969D04300C27F65 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECF92F2969D04300C27F65 /* WebViewViewController.swift */; };
 		B3F182C429925ED500D59083 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = B3F182C329925ED500D59083 /* SwiftKeychainWrapper */; };
 		B3F182C629926AE900D59083 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F182C529926AE900D59083 /* TabBarController.swift */; };
+		B3F7715B2999576E00054BBB /* ImagesListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7715A2999576E00054BBB /* ImagesListService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		B3ECF92D2969CE2300C27F65 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B3ECF92F2969D04300C27F65 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		B3F182C529926AE900D59083 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B3F7715A2999576E00054BBB /* ImagesListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			children = (
 				B3CD572A2928F2AC00873F54 /* ImagesListCell.swift */,
 				B3B747682926433300205CB4 /* ImagesListViewController.swift */,
+				B3F7715A2999576E00054BBB /* ImagesListService.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				B3050E1F293E17C500BE984E /* SingleViewController.swift in Sources */,
 				B3CBAB242987A4AB0066C8D8 /* UILabel.swift in Sources */,
 				B3A2044D2987CB50001F3F54 /* ProfileImageService.swift in Sources */,
+				B3F7715B2999576E00054BBB /* ImagesListService.swift in Sources */,
 				B3B747652926433300205CB4 /* AppDelegate.swift in Sources */,
 				B3B747672926433300205CB4 /* SceneDelegate.swift in Sources */,
 				B36053172983CC69009F8EDA /* URLRequest.swift in Sources */,

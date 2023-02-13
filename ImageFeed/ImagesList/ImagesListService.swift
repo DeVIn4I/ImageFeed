@@ -12,25 +12,28 @@ final class ImagesListService {
         let nextPage = lastLoadedPage == nil ? 1 : lastLoadedPage! + 1
         
         let request = URLRequest.makeHTTPRequest(path: "photos?page=\(nextPage)&per_page=10", token: OAuth2TokenStorage.shared.token)
+        print(request)
         let task = URLSession.shared.dataTask(type: [PhotoResult].self, for: request) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self else { return }
                 switch result {
                 case .success(let photoResult):
-                    self.photos.append(contentsOf: photoResult.map { $0.convertToPhoto() })
+                    self.photos.append(contentsOf: photoResult.map { $0.convert() })
                     NotificationCenter.default.post(name: ImagesListService.didChangeNotification, object: self)
                     self.task = nil
                 case .failure(let error):
                     print(error.localizedDescription)
+                    self.task = nil
                 }
             }
         }
+        self.task = task
     }
     
     struct Photo {
         let id: String
         let size: CGSize
-        let createdAt: Date?
+        let createdAt: String?
         let welcomeDescription: String?
         let thumbImageURL: String
         let largeImageURL: String
@@ -43,16 +46,18 @@ final class ImagesListService {
     }
     
     struct PhotoResult: Decodable {
-        let id: String
-        let width: Double
-        let height: Double
-        let createdAt: Date?
-        let description: String?
-        let likeByUser: Bool
-        let urls: UrlsResult
+            let id: String
+            let width: Int
+            let height: Int
+            let createdAt: String
+            let description: String?
+            let urls: UrlsResult
+            let likedByUser: Bool
         
-        func convertToPhoto() -> Photo {
-            return Photo(id: id, size: CGSize(width: width, height: height), createdAt: createdAt, welcomeDescription: description, thumbImageURL: self.urls.thumb, largeImageURL: self.urls.full, isLiked: likeByUser)
+        func convert() -> Photo {
+            return Photo(id: id, size: CGSize(width: width, height: height), createdAt: createdAt, welcomeDescription: description, thumbImageURL: self.urls.thumb, largeImageURL: self.urls.full, isLiked: likedByUser)
+            
         }
+        
     }
 }

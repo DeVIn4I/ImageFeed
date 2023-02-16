@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ImagesListCell: UITableViewCell {
     
@@ -20,6 +21,18 @@ final class ImagesListCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        cellImage.kf.cancelDownloadTask()
         self.gradientView.layer.sublayers = nil
+    }
+    
+    func setupCellConfig(with photo: Photo, completion: @escaping () -> Void) {
+        guard let thumbPhotoUrl = URL(string: photo.thumbImageURL),
+              let imagePlaceholder = UIImage(named: "ImagePlaceholder") else {
+            return
+        }
+        cellImage.kf.indicatorType = .activity
+        cellImage.kf.setImage(with: thumbPhotoUrl, placeholder: imagePlaceholder) { _,_ in
+           completion()
+        }
     }
 }

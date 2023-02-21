@@ -13,6 +13,7 @@
 		B320B5BB298105420019FE99 /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */; };
 		B36053172983CC69009F8EDA /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36053162983CC69009F8EDA /* URLRequest.swift */; };
 		B36053192983D128009F8EDA /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36053182983D128009F8EDA /* URLSession.swift */; };
+		B37B476729A4BCE900526E77 /* ImagesListCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B476629A4BCE900526E77 /* ImagesListCellDelegate.swift */; };
 		B38DBBF1292759C0002FEEE2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38DBBF0292759C0002FEEE2 /* UIColor+Extensions.swift */; };
 		B3993321296FE03500047519 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3993320296FE03500047519 /* SplashViewController.swift */; };
 		B399332629743C9700047519 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B399332529743C9700047519 /* ProgressHUD */; };
@@ -49,6 +50,7 @@
 		B320B5BA298105420019FE99 /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		B36053162983CC69009F8EDA /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 		B36053182983D128009F8EDA /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		B37B476629A4BCE900526E77 /* ImagesListCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCellDelegate.swift; sourceTree = "<group>"; };
 		B38DBBF0292759C0002FEEE2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		B3993320296FE03500047519 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B3A065A4292B87FD00ED8411 /* YS Display-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Regular.ttf"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				B3CD572A2928F2AC00873F54 /* ImagesListCell.swift */,
 				B3B747682926433300205CB4 /* ImagesListViewController.swift */,
 				B3F7715A2999576E00054BBB /* ImagesListService.swift */,
+				B37B476629A4BCE900526E77 /* ImagesListCellDelegate.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			files = (
 				B3ECF9302969D04300C27F65 /* WebViewViewController.swift in Sources */,
 				B3050E1A293DD71100BE984E /* ProfileViewController.swift in Sources */,
+				B37B476729A4BCE900526E77 /* ImagesListCellDelegate.swift in Sources */,
 				B36053192983D128009F8EDA /* URLSession.swift in Sources */,
 				B3D9C29D296DE2F9008A210E /* OAuth2Service.swift in Sources */,
 				B38DBBF1292759C0002FEEE2 /* UIColor+Extensions.swift in Sources */,

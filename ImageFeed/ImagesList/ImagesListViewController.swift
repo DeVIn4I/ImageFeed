@@ -71,11 +71,7 @@ final class ImagesListViewController: UIViewController {
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
-        if indexPath.row % 2 == 0 {
-            cell.likeButton.setImage(UIImage(named: "Pressed"), for: .normal)
-        } else {
-            cell.likeButton.setImage(UIImage(named: "NotPressed"), for: .normal)
-        }
+//            cell.likeButton.setImage(UIImage(named: "NotActiveLikeButton"), for: .normal)
         
         cell.dateLabel.text = dateFormatter.string(from: Date())
         
@@ -111,6 +107,29 @@ extension ImagesListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         configCell(for: imageListCell, with: indexPath)
+        imageListCell.delegate = self
         return imageListCell
+    }
+}
+
+extension ImagesListViewController: ImagesListCellDelegate {
+    func imageListCellDidTapLike(_ cell: ImagesListCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let photo = photos[indexPath.row]
+        UIBlockingProgressHUD.show()
+        imagesListService.changeLike(photoId: photo.id, isLike: !photo.isLiked) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                print("TOGGLE!!!!")
+                self.photos = self.imagesListService.photos
+                cell.setIsLiked(self.photos[indexPath.row].isLiked)
+                UIBlockingProgressHUD.dismiss()
+            case .failure(let error):
+                print(error)
+                UIBlockingProgressHUD.dismiss()
+                // ALERT!!!
+            }
+        }
     }
 }

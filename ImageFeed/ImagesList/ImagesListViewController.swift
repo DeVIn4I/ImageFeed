@@ -41,9 +41,8 @@ final class ImagesListViewController: UIViewController {
         if segue.identifier == showSingleImageSegueIdentifier {
             let viewController = segue.destination as! SingleViewController
             let indexPath = sender as! IndexPath
-            let image = UIImage(named: "\(photosName[indexPath.row])_full_size") ?? UIImage(named: photosName[indexPath.row])
-
-            viewController.image = image
+            let imageURL = URL(string: photos[indexPath.row].largeImageURL)
+            viewController.image = imageURL
         } else {
             super.prepare(for: segue, sender: sender)
         }
@@ -70,9 +69,6 @@ final class ImagesListViewController: UIViewController {
             guard let self else { return }
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
-        
-//            cell.likeButton.setImage(UIImage(named: "NotActiveLikeButton"), for: .normal)
-        
         cell.dateLabel.text = dateFormatter.string(from: Date())
         
         let gradientLayer = CAGradientLayer()
@@ -102,7 +98,6 @@ extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath)
-        
         guard let imageListCell = cell as? ImagesListCell else {
             return UITableViewCell()
         }
@@ -128,7 +123,7 @@ extension ImagesListViewController: ImagesListCellDelegate {
             case .failure(let error):
                 print(error)
                 UIBlockingProgressHUD.dismiss()
-                // ALERT!!!
+                SplashViewController.shared.showAlert(on: self)
             }
         }
     }

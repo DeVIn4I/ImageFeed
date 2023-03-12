@@ -28,12 +28,10 @@ final class ImagesListService {
                     
                 }
                 self.task = nil
-
             }
         }
         self.task = task
     }
-
     
     func changeLike(photoId: String, isLike: Bool, completion: @escaping (Result<Void, Error>) -> Void) {
         if task != nil { return }
@@ -63,7 +61,6 @@ final class ImagesListService {
                         isLiked: !photo.isLiked
                     )
                     self.photos[index] = newPhoto
-                    print("success✅")
                     completion(.success(()))
                 case .failure(let error):
                     print(error)

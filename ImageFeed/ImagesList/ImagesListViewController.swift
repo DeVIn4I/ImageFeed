@@ -69,7 +69,7 @@ final class ImagesListViewController: UIViewController {
             guard let self else { return }
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
-        cell.dateLabel.text = dateFormatter.string(from: Date())
+        cell.dateLabel.text = photo.createdAt?.string(format: "dd MMMM yyyy")
         cell.setIsLiked(photo.isLiked)
         
         let gradientLayer = CAGradientLayer()
@@ -117,7 +117,6 @@ extension ImagesListViewController: ImagesListCellDelegate {
             guard let self else { return }
             switch result {
             case .success:
-                print("TOGGLE!!!!")
                 self.photos = self.imagesListService.photos
                 cell.setIsLiked(self.photos[indexPath.row].isLiked)
                 UIBlockingProgressHUD.dismiss()

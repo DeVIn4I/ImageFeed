@@ -70,6 +70,7 @@ final class ImagesListViewController: UIViewController {
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         cell.dateLabel.text = dateFormatter.string(from: Date())
+        cell.setIsLiked(photo.isLiked)
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = cell.gradientView.bounds

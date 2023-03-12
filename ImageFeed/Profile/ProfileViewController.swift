@@ -100,7 +100,7 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
-    func logout() {
+    private func logout() {
         OAuth2TokenStorage().clearToken()
         WebViewViewController.clean()
         tabBarController?.dismiss(animated: true)

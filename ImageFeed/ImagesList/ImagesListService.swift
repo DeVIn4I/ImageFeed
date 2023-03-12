@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class ImagesListService {
     
@@ -23,11 +23,11 @@ final class ImagesListService {
                     self.lastLoadedPage += 1
                     self.photos.append(contentsOf: photoResult.map { $0.convertToPhoto() })
                     NotificationCenter.default.post(name: ImagesListService.didChangeNotification, object: self)
-                    self.task = nil
                 case .failure(let error):
                     print(error.localizedDescription)
-                    self.task = nil
+                    
                 }
+                self.task = nil
             }
         }
         self.task = task
@@ -61,14 +61,12 @@ final class ImagesListService {
                         isLiked: !photo.isLiked
                     )
                     self.photos[index] = newPhoto
-                    print("success✅")
-                    self.task = nil
                     completion(.success(()))
                 case .failure(let error):
                     print(error)
-                    self.task = nil
                     completion(.failure(error))
                 }
+                self.task = nil
             }
         }
         self.task = task

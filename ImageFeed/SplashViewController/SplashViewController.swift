@@ -1,7 +1,9 @@
 import UIKit
 import ProgressHUD
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
+    
+    static let shared = SplashViewController()
     
     private let oAuth2TokenStorage = OAuth2TokenStorage()
     private let oAuth2Service = OAuth2Service()
@@ -68,7 +70,7 @@ class SplashViewController: UIViewController {
         window.rootViewController = tabBarController
     }
     
-    private func showAlert(on vc: UIViewController) {
+    func showAlert(on vc: UIViewController) {
         let alert = UIAlertController(
             title: "Что-то пошло не так(",
             message: "Не удалось войти в систему",

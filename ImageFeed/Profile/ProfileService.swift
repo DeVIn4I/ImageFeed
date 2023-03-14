@@ -36,7 +36,7 @@ class ProfileService {
         let loginName: String?
         let bio: String?
     }
-    //!!!
+
     func fetchProfile(completion: @escaping ProfileBlock) {
         let request = URLRequest.makeHTTPRequest(path: "me", token: OAuth2TokenStorage().token)
         

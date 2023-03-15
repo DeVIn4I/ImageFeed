@@ -38,7 +38,7 @@ final class ImagesListService {
         let request = URLRequest.makeHTTPRequest(
             path: "/photos/\(photoId)/like",
             httpMethod: isLike ? .POST : .DELETE,
-            baseURL: defaultBaseURL,
+            baseURL: defaultBaseUrl,
             token: OAuth2TokenStorage.shared.token
         )
         let task = URLSession.shared.dataTask(type: LikeResult.self, for: request) { [weak self] (result: Result<LikeResult, Error>) in

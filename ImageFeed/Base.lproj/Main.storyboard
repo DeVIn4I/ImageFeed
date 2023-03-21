@@ -218,6 +218,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oE-PU-z7c">
                                 <rect key="frame" x="16" y="690" width="382" height="48"/>
                                 <color key="backgroundColor" name="YP White(iOS)"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Authenticate"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="f9F-eP-KsV"/>
                                 </constraints>
@@ -256,12 +257,12 @@
         <!--Web View View Controller-->
         <scene sceneID="JZr-gw-o2J">
             <objects>
-                <viewController id="UQN-Cb-uhP" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewViewController" id="UQN-Cb-uhP" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KjV-5B-e3R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-wh-xvE">
+                            <wkWebView contentMode="scaleToFill" restorationIdentifier="UnsplashWebView" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-wh-xvE">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="YP White(iOS)"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -288,6 +289,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GA4-au-2di"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="UnsplashWebView"/>
                         <constraints>
                             <constraint firstItem="oOC-IC-7bD" firstAttribute="top" secondItem="GA4-au-2di" secondAttribute="top" id="2Fv-d1-8E0"/>
                             <constraint firstAttribute="trailing" secondItem="VUZ-gJ-GKu" secondAttribute="trailing" id="3SO-Mh-6fS"/>
